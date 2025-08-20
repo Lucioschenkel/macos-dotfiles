@@ -10,6 +10,9 @@ fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Use vim keybindings
+set -o vi
+
 # --- END zsh --- #
 
 # --- BEGIN pure prompt --- #
