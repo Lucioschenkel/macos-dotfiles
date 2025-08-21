@@ -1,3 +1,7 @@
+# --- BEGIN variables --- #
+source ~/.zshenv
+# --- END variables --- #
+
 # --- BEGIN aliases --- #
 alias v='nvim'
 
