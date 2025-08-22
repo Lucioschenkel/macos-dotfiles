@@ -38,16 +38,16 @@ sketchybar --default "${default[@]}"
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
 # to indicate active and available mission control spaces.
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9")
+SPACE_ICONS=("1" "2" "3" "4" "5" "6")
 for i in "${!SPACE_ICONS[@]}"
 do
-  sketchybar --add item "${SPACE_ICONS[i]}" left \
-             --set "${SPACE_ICONS[i]}" icon="${SPACE_ICONS[i]}" \
-             --set "${SPACE_ICONS[i]}" icon.font="Hack Nerd Font:Bold:14.0" \
-             --set "${SPACE_ICONS[i]}" click_script="aerospace workspace ${SPACE_ICONS[i]}" \
-             --set "${SPACE_ICONS[i]}" script="$PLUGIN_DIR/space.sh"
-             --set "${SPACE_ICONS[i]}" label.drawing=off
-             --subscribe "${SPACE_ICONS[i]}" front_app_switched
+  space="${SPACE_ICONS[i]}"
+  sketchybar --add item "${space}" left \
+             --set "${space}" icon="${space}" \
+             --set "${space}" icon.font="Hack Nerd Font:Bold:14.0" \
+             --set "${space}" click_script="aerospace workspace ${space}" \
+             --set "${space}" script="$PLUGIN_DIR/space.sh" \
+             --subscribe "${space}" front_app_switched
 done
 
 ##### Adding Left Items #####
@@ -59,9 +59,6 @@ sketchybar --add item chevron left \
            --add item front_app left \
            --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
            --subscribe front_app front_app_switched
-
-# TODO: work on adding AeroSpace to the bar
-# sketchybar --add alias AeroSpace right
 
 ##### Adding Right Items #####
 # In the same way as the left items we can add items to the right side.
