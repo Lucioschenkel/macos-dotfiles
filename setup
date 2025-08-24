@@ -8,3 +8,4 @@ stow .
 
 # Apply system settings
 ./system-settings/appearance.sh
+./system-settings/hotkeys.sh
