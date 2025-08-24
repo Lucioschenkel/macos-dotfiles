@@ -6,8 +6,8 @@ HISTFILE=$HOME/.history
 HISTSIZE=10000000
 SAVEHIST=10000000
 
-setop HIST_IGNORE_SPACE # Don't save command to history when prefixed by a space
-setop HIST_IGNORE_DUPS # Share history between sessions
+setopt HIST_IGNORE_SPACE # Don't save command to history when prefixed by a space
+setopt HIST_IGNORE_DUPS # Share history between sessions
 
 # Search history with up and down keys
 autoload -U up-line-or-beginning-search
@@ -38,6 +38,22 @@ alias kns="kubens"
 
 # --- zsh plugins and prompt --- #
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
+
+# ------------ Completions --------------
+if [ ! -d ~/.zfunc ]; then
+  mkdir -p ~/.zfunc
+fi
+
+fpath+=~/.zfunc
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
+
+autoload -Uz compinit
+compinit -u
+
+zstyle ':completion:*' menu select
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
