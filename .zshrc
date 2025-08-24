@@ -42,7 +42,7 @@ alias binstall="b install"
 alias buninstall="b uninstall"
 
 # --- Rancher Desktop --- #
-if [ -d "$HOME/.rd"]; then
+if [ -d "$HOME/.rd" ]; then
   export PATH="$PATH:$HOME/.rd/bin"
 fi
 
