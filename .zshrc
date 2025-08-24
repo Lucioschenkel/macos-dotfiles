@@ -41,6 +41,11 @@ alias kns="kubens"
 alias binstall="b install"
 alias buninstall="b uninstall"
 
+# --- Rancher Desktop --- #
+if [ -d "$HOME/.rd"]; then
+  export PATH="$PATH:$HOME/.rd/bin"
+fi
+
 # ------------ Completions --------------
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 if [ ! -d ~/.zfunc ]; then
