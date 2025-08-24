@@ -41,10 +41,18 @@ alias kns="kubens"
 alias binstall="b install"
 alias buninstall="b uninstall"
 
-# --- Rancher Desktop --- #
-if [ -d "$HOME/.rd" ]; then
-  export PATH="$PATH:$HOME/.rd/bin"
+# --- PATH --- #
+
+# Rancher Desktop
+if [ -d "$RANCHER_HOME" ]; then
+  export PATH="$PATH:$RANCHER_HOME/bin"
 fi
+
+# pnpm
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 # ------------ Completions --------------
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
@@ -65,6 +73,7 @@ compinit -u
 
 zstyle ':completion:*' menu select
 
+# --- Plugins --- #
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -74,3 +83,4 @@ eval "$(direnv hook zsh)"
 # Load pure prompt --- #
 autoload -U promptinit; promptinit
 prompt pure
+

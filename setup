@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Constants
+PNPM_VERSION=10.11.0
+
 # Install all dependencies
 brew bundle
 
@@ -9,3 +12,6 @@ stow .
 # Apply system settings
 ./system-settings/appearance.sh
 ./system-settings/hotkeys.sh
+
+# Install pnpm
+curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=$PNPM_VERSION sh -
