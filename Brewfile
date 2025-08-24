@@ -1,5 +1,6 @@
 tap "felixkratz/formulae"
 tap "nikitabobko/tap"
+brew "direnv"
 brew "fd"
 brew "fzf"
 brew "gh"
