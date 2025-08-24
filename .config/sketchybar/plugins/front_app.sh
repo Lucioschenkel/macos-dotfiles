@@ -6,5 +6,7 @@
 # https://felixkratz.github.io/SketchyBar/config/events#events-and-scripting
 
 if [ "$SENDER" = "front_app_switched" ]; then
-  sketchybar --set "$NAME" label="$INFO"
+  FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
+  FOCUSED_WINDOW=$(aerospace list-windows --focused)
+  sketchybar --set space.$FOCUSED_WORKSPACE label=$($CONFIG_DIR/plugins/icon_map_fn.sh "$INFO")
 fi
