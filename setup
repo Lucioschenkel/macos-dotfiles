@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Install all dependencies
+brew bundle
+
+# Create symlinks using stow
+stow .
+
+# Apply system settings
+./system-settings/appearance.sh
