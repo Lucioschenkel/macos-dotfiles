@@ -36,13 +36,14 @@ alias kgp="kubectl get pods"
 alias kc="kubectx"
 alias kns="kubens"
 
-# --- zsh plugins and prompt --- #
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 # ------------ Completions --------------
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
 if [ ! -d ~/.zfunc ]; then
   mkdir -p ~/.zfunc
 fi
+
+source <(fzf --zsh)
 
 fpath+=~/.zfunc
 
@@ -57,6 +58,9 @@ zstyle ':completion:*' menu select
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Direnv hook
+eval "$(direnv hook zsh)"
 
 # Load pure prompt --- #
 autoload -U promptinit; promptinit
