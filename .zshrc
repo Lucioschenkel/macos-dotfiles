@@ -1,5 +1,6 @@
 # --- Source variables --- #
 source ~/.zshenv
+source ~/dotfiles/utils/brew.sh
 
 # --- History --- #
 HISTFILE=$HOME/.history
@@ -36,6 +37,9 @@ alias kgp="kubectl get pods"
 alias kc="kubectx"
 alias kns="kubens"
 
+# Homebrew
+alias binstall="b install"
+alias buninstall="b uninstall"
 
 # ------------ Completions --------------
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
